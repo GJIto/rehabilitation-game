@@ -1,0 +1,9 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    // Leitura da porta serial (Arduino UNO via USB)
+    api "com.fazecast:jSerialComm:$jSerialCommVersion"
+}
