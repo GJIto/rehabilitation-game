@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

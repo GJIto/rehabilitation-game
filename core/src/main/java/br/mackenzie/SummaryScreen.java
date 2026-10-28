@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -8,9 +8,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 /** Resumo final: barras de tempo na zona e pontuacao por fase (figura util para o paper). */
 public class SummaryScreen extends ScreenAdapter {
 
-    private final PescaGame game;
+    private final Main game;
 
-    public SummaryScreen(PescaGame game) {
+    public SummaryScreen(Main game) {
         this.game = game;
     }
 
@@ -39,8 +39,8 @@ public class SummaryScreen extends ScreenAdapter {
         game.shapes.end();
 
         game.batch.begin();
-        game.textoCentro("Resumo da sessão", PescaGame.W / 2f, 660, 2.6f, Cores.BRANCO);
-        game.textoCentro("Tempo na zona-alvo por fase", PescaGame.W / 2f, 600, 1.4f, Cores.CEU);
+        game.textoCentro("Resumo da sessão", Main.W / 2f, 660, 2.6f, Cores.BRANCO);
+        game.textoCentro("Tempo na zona-alvo por fase", Main.W / 2f, 600, 1.4f, Cores.CEU);
         int total = 0;
         for (int i = 0; i < Fase.TODAS.length; i++) {
             Resultado r = game.ultimos[i];
@@ -54,8 +54,8 @@ public class SummaryScreen extends ScreenAdapter {
                 game.textoCentro("—", cx, baseY + alturaMax + 35, 1.4f, Cores.CINZA);
             }
         }
-        game.textoCentro("Pontuação total: " + total, PescaGame.W / 2f, 95, 1.8f, Cores.SOL);
-        game.textoCentro("Dados salvos em sessoes_pesca.csv   |   ENTER = menu", PescaGame.W / 2f, 50, 1.0f, Cores.CEU);
+        game.textoCentro("Pontuação total: " + total, Main.W / 2f, 95, 1.8f, Cores.SOL);
+        game.textoCentro("Dados salvos em ~/.pesca-no-ritmo/sessoes_pesca.csv   |   ENTER = menu", Main.W / 2f, 50, 1.0f, Cores.CEU);
         game.batch.end();
     }
 

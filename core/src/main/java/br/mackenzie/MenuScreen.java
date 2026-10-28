@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -12,11 +12,11 @@ public class MenuScreen extends ScreenAdapter {
 
     private static final int INICIAR = 0, CALIBRAR = 1, ENTRADA = 2, SAIR = 3;
 
-    private final PescaGame game;
+    private final Main game;
     private final Rectangle[] botoes = new Rectangle[4];
     private final Vector2 toque = new Vector2();
 
-    public MenuScreen(PescaGame game) {
+    public MenuScreen(Main game) {
         this.game = game;
         for (int i = 0; i < botoes.length; i++) {
             botoes[i] = new Rectangle(380, 400 - i * 95, 520, 70);
@@ -56,8 +56,8 @@ public class MenuScreen extends ScreenAdapter {
         game.shapes.end();
 
         game.batch.begin();
-        game.textoCentro("PESCA NO RITMO", PescaGame.W / 2f, 660, 3.2f, Cores.BRANCO);
-        game.textoCentro("Pedale em ritmo constante para recolher a linha", PescaGame.W / 2f, 590, 1.4f, Cores.CEU);
+        game.textoCentro("PESCA NO RITMO", Main.W / 2f, 660, 3.2f, Cores.BRANCO);
+        game.textoCentro("Pedale em ritmo constante para recolher a linha", Main.W / 2f, 590, 1.4f, Cores.CEU);
         String[] rotulos = {
             "Iniciar jogo  (ENTER)",
             "Calibrar cadência  (C)",
@@ -70,11 +70,11 @@ public class MenuScreen extends ScreenAdapter {
         }
         game.textoCentro("Cadência-alvo: " + Math.round(game.alvoRpm) + " RPM"
                 + (game.calibrado ? "" : "  (padrão, ainda não calibrada)"),
-                PescaGame.W / 2f, 150, 1.2f, Cores.BRANCO);
+                Main.W / 2f, 150, 1.2f, Cores.BRANCO);
         if (!game.statusEntrada.isEmpty()) {
-            game.textoCentro(game.statusEntrada, PescaGame.W / 2f, 115, 1.1f, Cores.ALERTA);
+            game.textoCentro(game.statusEntrada, Main.W / 2f, 115, 1.1f, Cores.ALERTA);
         }
-        game.textoCentro("No jogo: P = pausar   R = reiniciar fase   M = menu", PescaGame.W / 2f, 60, 1.0f, Cores.CEU);
+        game.textoCentro("No jogo: P = pausar   R = reiniciar fase   M = menu", Main.W / 2f, 60, 1.0f, Cores.CEU);
         game.batch.end();
     }
 

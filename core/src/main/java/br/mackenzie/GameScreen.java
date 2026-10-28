@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 
-import br.pesca.LutaPesca.Estado;
+import br.mackenzie.LutaPesca.Estado;
 
 /**
  * Tela de jogo. As regras vivem em {@link LutaPesca}; aqui ficam so entrada, pausa e desenho
@@ -19,7 +19,7 @@ public class GameScreen extends ScreenAdapter {
     private static final float AGUA_Y = 360f;
     private static final float TEMPO_FIM = 1.8f;
 
-    private final PescaGame game;
+    private final Main game;
     private final int idxFase;
     private final Fase fase;
     private final LutaPesca luta;
@@ -30,7 +30,7 @@ public class GameScreen extends ScreenAdapter {
     private float tempoFim;
     private char ultimoSinal = 0;
 
-    public GameScreen(PescaGame game, int idxFase) {
+    public GameScreen(Main game, int idxFase) {
         this.game = game;
         this.idxFase = idxFase;
         this.fase = Fase.TODAS[idxFase];
@@ -100,7 +100,7 @@ public class GameScreen extends ScreenAdapter {
         desenharMedidorCadencia(s, cad);
         if (pausado) {
             s.setColor(Cores.VEU);
-            s.rect(0, 0, PescaGame.W, PescaGame.H);
+            s.rect(0, 0, Main.W, Main.H);
         }
         s.end();
 
@@ -124,15 +124,15 @@ public class GameScreen extends ScreenAdapter {
         }
 
         s.setColor(Cores.AGUA1);
-        s.rect(0, 0, PescaGame.W, AGUA_Y);
-        for (float x = -20; x < PescaGame.W + 40; x += 40) {
+        s.rect(0, 0, Main.W, AGUA_Y);
+        for (float x = -20; x < Main.W + 40; x += 40) {
             float y = AGUA_Y + (float) Math.sin(relogio * 2f + (x + scroll * 3f) * 0.03f) * 6f;
             s.circle(x, y, 22, 16);
         }
         s.setColor(Cores.AGUA2);
-        s.rect(0, 0, PescaGame.W, 230);
+        s.rect(0, 0, Main.W, 230);
         s.setColor(Cores.AGUA3);
-        s.rect(0, 0, PescaGame.W, 110);
+        s.rect(0, 0, Main.W, 110);
     }
 
     private void desenharBarco(ShapeRenderer s, float x) {
@@ -213,7 +213,7 @@ public class GameScreen extends ScreenAdapter {
                 30, 665, 1.2f, Cores.PRETO);
         game.texto("Linhas rompidas: " + luta.rompidas + " / " + LutaPesca.MAX_ROMPIDAS, 30, 635, 1.2f, Cores.PRETO);
         game.texto("Cadência: " + Math.round(cad) + " RPM  (zona " + Math.round(luta.zonaMin) + "–" + Math.round(luta.zonaMax) + ")",
-                PescaGame.W - 470, 700, 1.2f, Cores.PRETO);
+                Main.W - 470, 700, 1.2f, Cores.PRETO);
         game.textoCentro("TENSÃO", 1192, 580, 1.0f, Cores.BRANCO);
 
         String msg;

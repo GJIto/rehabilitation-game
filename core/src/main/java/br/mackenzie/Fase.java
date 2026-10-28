@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 /** Parametros de cada fase. Toda a dificuldade do jogo esta configurada aqui. */
 public final class Fase {

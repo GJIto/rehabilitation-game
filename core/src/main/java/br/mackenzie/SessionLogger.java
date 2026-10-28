@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,9 +11,11 @@ import java.util.Locale;
 /** Registra cada tentativa em CSV: base para mostrar a evolucao do paciente entre sessoes. */
 public class SessionLogger {
 
-    private final File arquivo = new File("sessoes_pesca.csv");
+    /** Fica na pasta do usuario (~/.pesca-no-ritmo/) para nao depender do diretorio de trabalho. */
+    private final File arquivo = new File(new File(System.getProperty("user.home"), ".pesca-no-ritmo"), "sessoes_pesca.csv");
 
     public void registrar(Resultado r) {
+        arquivo.getParentFile().mkdirs();
         boolean novo = !arquivo.exists();
         try (PrintWriter w = new PrintWriter(new FileWriter(arquivo, true))) {
             if (novo) {

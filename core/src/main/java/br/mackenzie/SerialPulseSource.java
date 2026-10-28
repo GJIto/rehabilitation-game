@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.fazecast.jSerialComm.SerialPort;
 

@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -14,14 +14,14 @@ public class CalibrationScreen extends ScreenAdapter {
     private static final float DURACAO = 20f, DESCARTE = 5f;
     private static final float ALVO_MIN = 30f, ALVO_MAX = 80f;
 
-    private final PescaGame game;
+    private final Main game;
     private final boolean iniciarDepois;
     private boolean comecou;
     private float t;
     private double soma;
     private int amostras;
 
-    public CalibrationScreen(PescaGame game, boolean iniciarDepois) {
+    public CalibrationScreen(Main game, boolean iniciarDepois) {
         this.game = game;
         this.iniciarDepois = iniciarDepois;
         game.tracker.reset();
@@ -61,14 +61,14 @@ public class CalibrationScreen extends ScreenAdapter {
         game.shapes.end();
 
         game.batch.begin();
-        game.textoCentro("CALIBRAÇÃO", PescaGame.W / 2f, 640, 2.6f, Cores.BRANCO);
+        game.textoCentro("CALIBRAÇÃO", Main.W / 2f, 640, 2.6f, Cores.BRANCO);
         game.textoCentro("Pedale em um ritmo confortável, como se fosse durante um passeio.",
-                PescaGame.W / 2f, 560, 1.3f, Cores.CEU);
+                Main.W / 2f, 560, 1.3f, Cores.CEU);
         game.textoCentro(comecou ? "Mantenha o ritmo..." : "Comece a pedalar (a contagem inicia sozinha)",
-                PescaGame.W / 2f, 500, 1.3f, Cores.BRANCO);
-        game.textoCentro("Cadência atual: " + Math.round(rpm) + " RPM", PescaGame.W / 2f, 400, 1.8f, Cores.BRANCO);
-        game.textoCentro(Math.max(0, Math.round(DURACAO - t)) + " s restantes", PescaGame.W / 2f, 190, 1.2f, Cores.CEU);
-        game.textoCentro("ESC = pular (usar " + Math.round(game.alvoRpm) + " RPM)", PescaGame.W / 2f, 80, 1.0f, Cores.CEU);
+                Main.W / 2f, 500, 1.3f, Cores.BRANCO);
+        game.textoCentro("Cadência atual: " + Math.round(rpm) + " RPM", Main.W / 2f, 400, 1.8f, Cores.BRANCO);
+        game.textoCentro(Math.max(0, Math.round(DURACAO - t)) + " s restantes", Main.W / 2f, 190, 1.2f, Cores.CEU);
+        game.textoCentro("ESC = pular (usar " + Math.round(game.alvoRpm) + " RPM)", Main.W / 2f, 80, 1.0f, Cores.CEU);
         game.batch.end();
     }
 

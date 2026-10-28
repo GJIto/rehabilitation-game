@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 /** Metricas de uma tentativa de fase. E isto que mede a evolucao do paciente. */
 public final class Resultado {

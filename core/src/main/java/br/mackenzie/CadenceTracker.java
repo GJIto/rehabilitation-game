@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 /**
  * Converte pulsos (1 pulso = 1 volta da pedivela) em cadencia suavizada (RPM).

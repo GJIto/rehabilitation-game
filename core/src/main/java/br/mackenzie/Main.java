@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -18,7 +18,7 @@ import com.fazecast.jSerialComm.SerialPort;
  * Ponto de entrada e dono dos recursos compartilhados (um unico ShapeRenderer, SpriteBatch e fonte
  * para todas as telas), alem da entrada de pedalada e dos dados da sessao.
  */
-public class PescaGame extends Game {
+public class Main extends Game {
 
     public static final float W = 1280f, H = 720f;
 

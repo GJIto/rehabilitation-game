@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 /** Fonte de pulsos de pedalada: simulador por teclado ou Arduino via serial. */
 public interface PulseSource {

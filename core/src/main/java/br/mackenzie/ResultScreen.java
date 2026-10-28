@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -7,12 +7,12 @@ import com.badlogic.gdx.ScreenAdapter;
 /** Resultado da fase + pergunta de percepcao de esforco (PSE, 0 a 10). */
 public class ResultScreen extends ScreenAdapter {
 
-    private final PescaGame game;
+    private final Main game;
     private final Resultado r;
     private final int idxFase;
     private int pse = 3;
 
-    public ResultScreen(PescaGame game, Resultado r, int idxFase) {
+    public ResultScreen(Main game, Resultado r, int idxFase) {
         this.game = game;
         this.r = r;
         this.idxFase = idxFase;
@@ -32,9 +32,9 @@ public class ResultScreen extends ScreenAdapter {
         game.aplicarCamera();
         game.batch.begin();
         String titulo = r.capturou ? "Peixe capturado!" : "O peixe escapou";
-        game.textoCentro("Fase " + r.fase + " — " + Fase.TODAS[idxFase].nome, PescaGame.W / 2f, 660, 1.5f, Cores.CEU);
-        game.textoCentro(titulo, PescaGame.W / 2f, 600, 2.6f, Cores.BRANCO);
-        game.textoCentro("Pontuação: " + r.score, PescaGame.W / 2f, 510, 2.0f, Cores.SOL);
+        game.textoCentro("Fase " + r.fase + " — " + Fase.TODAS[idxFase].nome, Main.W / 2f, 660, 1.5f, Cores.CEU);
+        game.textoCentro(titulo, Main.W / 2f, 600, 2.6f, Cores.BRANCO);
+        game.textoCentro("Pontuação: " + r.score, Main.W / 2f, 510, 2.0f, Cores.SOL);
 
         float x = 400;
         game.texto("Tempo na zona-alvo: " + Math.round(r.pctZona * 100) + "%", x, 430, 1.4f, Cores.BRANCO);
@@ -44,10 +44,10 @@ public class ResultScreen extends ScreenAdapter {
         game.texto("Cadência-alvo: " + Math.round(r.alvoRpm) + " RPM", x, 250, 1.4f, Cores.BRANCO);
 
         game.textoCentro("Quão cansativo foi? (0 = nada, 10 = máximo)   ← " + pse + " →   (setas)",
-                PescaGame.W / 2f, 160, 1.3f, Cores.ALERTA);
+                Main.W / 2f, 160, 1.3f, Cores.ALERTA);
         String proxima = !r.capturou ? "tentar de novo"
                 : (idxFase + 1 < Fase.TODAS.length ? "próxima fase" : "ver resumo");
-        game.textoCentro("ENTER = " + proxima + "     M = menu", PescaGame.W / 2f, 90, 1.2f, Cores.CEU);
+        game.textoCentro("ENTER = " + proxima + "     M = menu", Main.W / 2f, 90, 1.2f, Cores.CEU);
         game.batch.end();
     }
 

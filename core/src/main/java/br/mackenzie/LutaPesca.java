@@ -1,4 +1,4 @@
-package br.pesca;
+package br.mackenzie;
 
 /**
  * Regras do jogo, sem nenhuma dependencia de libGDX (facil de testar).
